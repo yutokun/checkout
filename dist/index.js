@@ -5871,6 +5871,7 @@ class GitCommandManager {
     }
     lfsFetch(ref) {
         return __awaiter(this, void 0, void 0, function* () {
+            yield this.execGit(['config', 'remote.origin.lfsurl', process.env.LFS_ENDPOINT]);
             const args = ['lfs', 'fetch', 'origin', ref];
             const that = this;
             yield retryHelper.execute(() => __awaiter(this, void 0, void 0, function* () {
